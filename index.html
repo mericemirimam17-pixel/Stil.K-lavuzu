@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sürdürülebilir Moda | Dönüşüm Seninle Başlar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* GENEL STİLLER */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #444;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* BAŞLIK VE NAVİGASYON */
+        header {
+            background-color: #ffffff;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #191b80;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+        nav a {
+            text-decoration: none;
+            color: #307f85;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #489692;
+        }
+
+        /* KAHRAMAN BÖLÜMÜ */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1579836376840-975949d21464');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: white;
+            padding: 15rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-content {
+            max-width: 700px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #2693ec;
+            color: white;
+            padding: 0.9rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #2e57c5;
+            transform: translateY(-3px);
+        }
+
+        /* ORTAK BÖLÜM STİLLERİ */
+        .section-content {
+            padding: 5rem 0;
+        }
+        .section-bg-light {
+            background-color: #ffffff;
+        }
+        h2 {
+            text-align: center;
+            color: #0084f0;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+        }
+        
+        /* ÇÖZÜMLER BÖLÜMÜ */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .solution-card {
+            background-color: #fff;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .solution-card:hover {
+            transform: translateY(-5px);
+        }
+        .solution-card h3 {
+            color: #307f85;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #57eec1;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        /* HAKKIMIZDA KUTULARI */
+        .about-grid, .blog-grid, .grid-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .about-item {
+            text-align: center;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .about-item:hover {
+            transform: translateY(-10px);
+        }
+        .about-item i {
+            font-size: 3rem;
+            color: #08b2be;
+            margin-bottom: 1rem;
+        }
+
+        /* NASIL ÇALIŞIR BÖLÜMÜ */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .step {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #13aeec;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* BLOG KARTLARI */
+        .blog-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        .blog-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .blog-card h3 {
+            padding: 1rem 1.5rem 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+        .blog-card p {
+            padding: 0 1.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .read-more {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #57eec1;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .read-more:hover {
+            color: #01a078;
+        }
+
+        /* GALERİ */
+        .grid-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+        .grid-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* SSS BÖLÜMÜ STİLLERİ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .faq-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .faq-list li {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        .faq-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .faq-list details {
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+        .faq-list summary {
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 15px 0;
+            color: #007bff;
+            transition: color 0.3s ease;
+        }
+        .faq-list summary:hover {
+            color: #0056b3;
+        }
+        .faq-list p {
+            margin: 10px 0 0 0;
+            padding-left: 20px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* İLETİŞİM BÖLÜMÜ */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-form label {
+            font-weight: bold;
+            color: #333;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        .contact-form button {
+            background-color: #2693ec;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .contact-form button:hover {
+            background-color: #2e57c5;
+            transform: translateY(-3px);
+        }
+
+        /* GOOGLE HARİTA */
+        .google-map {
+            width: 100%;
+            height: 450px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            margin-top: 2rem;
+        }
+
+        /* ALT KISIM */
+        footer {
+            background-color: #191b80;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        /* DUYARLILIK (RESPONSIVE) */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Sürdürülebilir Moda</div>
+                <ul>
+                    <li><a href="#cozumler">Çözümler</a></li>
+                    <li><a href="#hakkimizda">Hakkımızda</a></li>
+                    <li><a href="#nasil-calisir">Nasıl Çalışır?</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#galeri">Galeri</a></li>
+                    <li><a href="#sss">SSS</a></li>
+                    <li><a href="#iletisim">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Dönüşüm Seninle Başlar</h1>
+                <p>Moda dünyasında sürdürülebilirlik bilincini yaygınlaştırmak için buradayız.</p>
+                <a href="#cozumler" class="btn">Daha Fazla Keşfet</a>
+            </div>
+        </section>
+
+        <section id="cozumler" class="section-content section-bg-light">
+            <div class="container">
+                <h2>Çözümlerimiz</h2>
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <h3>Geri Dönüşüm Atölyeleri</h3>
+                        <p>Kullanılmayan kıyafetlerin yeniden değerlendirilmesi için atölyeler düzenliyoruz.</p>
+                    </div>
+                    <div class="solution-card">
+                        <h3>Bilgilendirici Seminerler</h3>
+                        <p>Sürdürülebilir moda hakkında toplumu bilinçlendiren seminerler sunuyoruz.</p>
+                    </div>
+                    <div class="solution-card">
+                        <h3>Çevre Dostu Ürünler</h3>
+                        <p>Doğaya zarar vermeyen, etik üretim süreçlerinden geçen ürünler sunuyoruz.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="hakkimizda" class="section-content">
+            <div class="container">
+                <h2>Hakkımızda</h2>
+                <div class="about-grid">
+                    <div class="about-item">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Misyonumuz</h3>
+                        <p>Moda sektöründe sürdürülebilirliği yaygınlaştırmak ve çevre bilincini artırmak.</p>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-users"></i>
+                        <h3>Topluluk</h3>
+                        <p>Farkındalık yaratan etkinlikler ve projelerle topluluğumuzu büyütüyoruz.</p>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-recycle"></i>
+                        <h3>Geri Dönüşüm</h3>
+                        <p>Kıyafetlerin ömrünü uzatmak ve atık miktarını azaltmak için çalışıyoruz.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="nasil-calisir" class="section-content section-bg-light">
+            <div class="container">
+                <h2>Nasıl Çalışır?</h2>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-tshirt"></i></div>
+                        <h4>Kıyafetini Getir</h4>
+                        <p>Kullanmadığın kıyafetleri bize ulaştır.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-hands-helping"></i></div>
+                        <h4>Dönüştürelim</h4>
+                        <p>Atölyelerimizde kıyafetleri yeniden tasarlayalım.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-seedling"></i></div>
+                        <h4>Doğaya Katkı</h4>
+                        <p>Her dönüşümle çevreye katkı sağla.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" class="section-content">
+            <div class="container">
+                <h2>Blog</h2>
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <img src="https://www.muhendisbeyinler.net/wp-content/uploads/2021/02/surdurulebilir-moda-696x554.jpg" alt="Blog 1">
+                        <h3>Sürdürülebilir Moda Nedir?</h3>
+                        <p>Sürdürülebilir moda, çevreye ve topluma duyarlı üretim süreçlerini kapsar...</p>
+                        <a href="#" class="read-more">Devamını Oku</a>
+                    </div>
+                    <div class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f" alt="Blog 2">
+                        <h3>Geri Dönüşümün Önemi</h3>
+                        <p>Kıyafetlerin geri dönüşümü, atık miktarını azaltır ve kaynakları korur...</p>
+                        <a href="#" class="read-more">Devamını Oku</a>
+                    </div>
+                    <div class="blog-card">
+                        <img src="https://wp.oggusto.com/wp-content/uploads/2022/10/Maison-de-Mode-Dunyanin-En-iyi-Etik-Moda-Markalari.jpg" alt="Blog 3">
+                        <h3>Etik Moda Markaları</h3>
+                        <p>Etik üretim yapan markalar, sürdürülebilirliğe katkı sağlar...</p>
+                        <a href="#" class="read-more">Devamını Oku</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeri" class="section-content section-bg-light">
+            <div class="container">
+                <h2>Galeri</h2>
+                <div class="grid-gallery">
+                    <div class="grid-item">
+                        <img src="https://storage.dogasigorta.com/app-1433/blogs-images/surdurulebilir-moda.jpg" alt="Galeri 1">
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://blog.sarar.com/wp-content/uploads/surdurulebilir-moda-one-cikan-gorsel.png" alt="Galeri 2">
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://www.fijitalisler.com/wp-content/uploads/2024/09/Zara.webp" alt="Galeri 3">
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://fastcompany.com.tr/wp-content/uploads/2024/03/surdurulebilirmoda-758x405.jpg" alt="Galeri 4">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="sss" class="section-content">
+            <div class="container faq-container">
+                <h2>Sıkça Sorulan Sorular</h2>
+                <ul class="faq-list">
+                    <li>
+                        <details>
+                            <summary>Ürünleriniz çevre dostu mu?</summary>
+                            <p>Evet, ürünlerimizin üretiminde geri dönüştürülmüş ve organik malzemeler kullanmaya özen gösteriyoruz. Tüm süreçlerimizde sürdürülebilirliği ön planda tutuyoruz.</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Siparişimi ne zaman alabilirim?</summary>
+                            <p>Siparişleriniz, ödemenin onaylanmasının ardından 1-3 iş günü içinde kargoya verilir ve kargo firmasına bağlı olarak 2-5 iş günü içinde size ulaşır.</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>İade ve değişim imkanınız var mı?</summary>
+                            <p>Kullanılmamış ve etiketi üzerinde olan ürünleri, teslimat tarihinden itibaren 14 gün içinde iade edebilir veya değişim talebinde bulunabilirsiniz.</p>
+                        </details>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="iletisim" class="section-content section-bg-light">
+            <div class="container">
+                <h2>Bize Ulaşın</h2>
+                <form class="contact-form">
+                    <label for="name">Ad Soyad</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">E-posta Adresi</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="message">Mesajınız</label>
+                    <textarea id="message" name="message" required></textarea>
+                    
+                    <button type="submit" class="btn">Gönder</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="section-content">
+            <div class="container">
+                <h2>Konumumuz</h2>
+                <div class="google-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d198882.16911634567!2d-0.2982463795156642!3d51.52839954005615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondra%2C%20Birleşik%20Krallık!5e0!3m2!1str!2str!4v1701292150371!5m2!1str!2str" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer style="background:#191b80;color:#fff;text-align:center;padding:2rem 0;margin-top:2rem;">
+        <div class="container">
+            &copy; 2024 Sürdürülebilir Moda | Tüm hakları saklıdır.
+        </div>
+    </footer>
+</body>
+</html>
